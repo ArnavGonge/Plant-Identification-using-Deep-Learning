@@ -98,6 +98,7 @@ The detailed information for each endpoint is given below:
 5. The loss function used was Keras categorical focal cross entropy.
 6. Cyclic learning rate scheduler was used but can be replaced by a simple reduce learning rate on plateau function.
 7. By process of transfer learning, first only the softmax layer was trained and then we gradually unfroze the remaining layers whilst keeping the batch normalization layers frozen.
+   
 
 ## Docker image recreation
 
@@ -106,4 +107,8 @@ The detailed information for each endpoint is given below:
 3. Run the following commands from the Dockerfile directory.
     - docker build -t <image_name:tag> .
     - docker run -d -p <port>:8000 <image_name:tag>
+      
    
+## Android Application
+
+The corresponding android application that works with this backend can be found in the following repository:
