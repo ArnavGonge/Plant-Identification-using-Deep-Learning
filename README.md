@@ -86,4 +86,24 @@ The detailed information for each endpoint is given below:
        - user_id: ID of the user.
        - image_data: URL or data representing the image.
        - created_at: Timestamp indicating when the history record was created.
-       - prediction_result: Details of the prediction result associated with the history record.   
+       - prediction_result: Details of the prediction result associated with the history record.
+
+    
+## Model
+
+1. Datasets: PlantCLEF 2015 dataset (https://lab.plantnet.org/LifeCLEF/PlantCLEF2015/) and an additional Indian Medicinal Plant Species dataset (https://www.kaggle.com/datasets/warcoder/indian-medicinal-plant-image-dataset) were used.
+2. 553 species from the PlantCLEF dataset and 35 species from the Indian Medicinal Plant Species dataset were used; the species can be found in class_indices.csv
+3. Only leaf and leaf-scan images are used from the PlantCLEF dataset.
+4. Transfer learning from ImageNet weights on the EfficientNetV2S model was applied.
+5. The loss function used was Keras categorical focal cross entropy.
+6. Cyclic learning rate scheduler was used but can be replaced by a simple reduce learning rate on plateau function.
+7. By process of transfer learning, first only the softmax layer was trained and then we gradually unfroze the remaining layers whilst keeping the batch normalization layers frozen.
+
+## Docker image recreation
+
+1. To recreate the docker image, just make sure the model is copied into the Dockerfile's working directory.
+2. Update the model_path in main.py to what it would be inside the docker container (/app/<model_directory>).
+3. Run the following commands from the Dockerfile directory.
+    - docker build -t <image_name:tag> .
+    - docker run -d -p <port>:8000 <image_name:tag>
+   
