@@ -73,4 +73,17 @@ The detailed information for each endpoint is given below:
    - Returns a message indicating whether the feedback was submitted successfully.
    - Raises a 500 Internal Server Error HTTP exception if an error occurs during image processing or database storage.
 
-
+5. /get_feedback:
+   - Retrieves all feedback entries from the database.
+   - Raises a 500 Internal Server Error HTTP exception if an error occurs during database retrieval.
+  
+6. /get_user_history/{username}:
+   - Retrieves user history records for a specified username.
+   - Returns a JSON object with the key "history" containing a list of user history records.
+   - Each history record includes:
+       - id: Unique identifier of the history record.
+       - username: Username of the user.
+       - user_id: ID of the user.
+       - image_data: URL or data representing the image.
+       - created_at: Timestamp indicating when the history record was created.
+       - prediction_result: Details of the prediction result associated with the history record.   
