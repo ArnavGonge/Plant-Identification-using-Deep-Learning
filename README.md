@@ -20,7 +20,7 @@ To run the plant identification backend locally, follow these steps:
    - cd Plant-Identification-using-Deep-Learning
   
 2. Download the model:
-   - The model can be found on the following link:     
+   - The model can be found on the following link: https://drive.google.com/drive/folders/1D-qd0ZyJz0pcruI4deFHL7RDYKZ4X064?usp=sharing    
 
 3. Install dependencies:
     - cd app/fastapi
