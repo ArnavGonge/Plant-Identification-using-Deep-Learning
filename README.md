@@ -28,6 +28,12 @@ To run the plant identification backend locally, follow these steps:
    - Open main.py
    - Update model path on line 37
 
-4.      
+4. Run the FastAPI server:
+   - uvicorn main:app --reload
+  
+5. Test the server:
+   - Open http://localhost:8000/docs in your browser to check the API documentation and test them.
+  
+##Usage
      
 
